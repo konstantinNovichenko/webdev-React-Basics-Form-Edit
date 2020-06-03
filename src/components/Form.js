@@ -6,10 +6,12 @@ export class FormEdit extends Component {
     this.state = {
       firstName: "Temur",
       lastName: "Sabirov",
+      previous_firstName: "",
+      previous_lastName: "",
       editing: false,
     };
 
-    this.previousState = this.state;
+    //this.previousState = this.state;
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -53,7 +55,7 @@ export class FormEdit extends Component {
         <button
           className="save"
           onClick={() => {
-            this.setState({ editing: false });
+            this.setState({ editing: false, previous_firstName: this.state.firstName, previous_lastName: this.state.lastName });
           }}
         >
           Save
@@ -61,7 +63,7 @@ export class FormEdit extends Component {
         <button
           className="cancel"
           onClick={() => {
-            this.setState({ ...this.previousState, editing: false });
+            this.setState({ firstName: this.state.previous_firstName, lastName: this.state.previous_lastName, editing: false });
           }}
         >
           Cancel
