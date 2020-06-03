@@ -5,8 +5,8 @@ export class FormEdit extends Component {
   constructor() {
     super();
     this.state = {
-      firstName: "Temur",
-      lastName: "Sabirov",
+      firstName: "John",
+      lastName: "Smith",
       previous_firstName: "",
       previous_lastName: "",
       editing: false,
@@ -24,6 +24,7 @@ export class FormEdit extends Component {
 
   render() {
     return !this.state.editing ? (
+    
     <div className="container">
       <form>
         <div className="firstname">First name: {this.state.firstName}</div>
