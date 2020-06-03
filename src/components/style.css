@@ -1,7 +1,7 @@
 html {
     height: 100%;    
 	background: rgb(4,1,53);
-	background: linear-gradient(180deg, rgba(4,1,53,1) 0%, rgba(0,0,0,1) 35%, rgba(7,63,82,1) 100%);
+	background: linear-gradient(180deg, rgb(4, 1, 53) 0%, rgba(0,0,0,1) 35%, rgba(7,63,82,1) 100%);
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat:no-repeat		
@@ -19,11 +19,6 @@ html {
     border: solid gray 5px;
 }
 
-.form-box{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
 
 .firstname {
     border: 2px solid black;
