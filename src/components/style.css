@@ -47,9 +47,9 @@
 }
 
 .myButton {
-	background-color: red;
+	background-color: blue;
 	border-radius:28px;
-	border:1px solid #18ab29;
+	border:1px solid white;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -61,7 +61,7 @@
 }
 
 .myButton:hover {
-	background-color:#5cbf2a;
+	background-color: cyan;
 }
 
 .myButton:active {
