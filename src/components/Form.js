@@ -1,55 +1,74 @@
 import React, { Component } from "react";
 
-class Form extends Component {
-  constructor(props) {
-    super(props);
+export class FormEdit extends Component {
+  constructor() {
+    super();
     this.state = {
       firstName: "Temur",
       lastName: "Sabirov",
+      editing: false,
     };
+
+    this.previousState = this.state;
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleEdit() {}
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
   render() {
-    return (
-      <>
-        <form>
-          <div className="firstName">
-            <label>
-              First Name
-              <input
-                type="text"
-                name="name"
-                value={this.state.firstName}
-                onChange={(event) =>
-                  this.setState({ firstName: event.target.value })
-                }
-              />
-            </label>
-            {this.state.firstName}
-          </div>
-
-          <div className="lastName">
-            <label>
-              Last Name
-              <input
-                type="text"
-                name="name"
-                value={this.state.lastName}
-                onChange={(event) =>
-                  this.setState({ lastName: event.target.value })
-                }
-              />
-            </label>
-          </div>
-
-          <div className="editBtn">
-            <button onClick="handleEdit()">Edit</button>
-          </div>
-        </form>
-      </>
+    return !this.state.editing ? (
+      <form>
+        <div className="firstname">First name: {this.state.firstName}</div>
+        <div className="lastname">Last name: {this.state.lastName}</div>
+        <button
+          onClick={() => {
+            this.setState({ editing: true });
+          }}
+        >
+          editing
+        </button>
+      </form>
+    ) : (
+      <form>
+        <div className="firstname">First name:</div>
+        <input
+          className="initFirst"
+          type="text"
+          name="first"
+          onChange={(event) => this.setState({ firstName: event.target.value })}
+          placeholder={this.state.firstName}
+        />
+        <div className="lastname">Last name:</div>
+        <input
+          className="initLast"
+          type="text"
+          name="last"
+          onChange={(event) => this.setState({ lastName: event.target.value })}
+          placeholder={this.state.lastName}
+        />
+        <button
+          className="save"
+          onClick={() => {
+            this.setState({ editing: false });
+          }}
+        >
+          Save
+        </button>
+        <button
+          className="cancel"
+          onClick={() => {
+            this.setState({ ...this.previousState, editing: false });
+          }}
+        >
+          Cancel
+        </button>
+      </form>
     );
   }
 }
 
-export default Form;
+export default FormEdit;
