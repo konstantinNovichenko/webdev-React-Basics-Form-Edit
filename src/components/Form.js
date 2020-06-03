@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './style.css';
 
 export class FormEdit extends Component {
   constructor() {
@@ -23,10 +24,11 @@ export class FormEdit extends Component {
 
   render() {
     return !this.state.editing ? (
+    <div className="container">
       <form>
         <div className="firstname">First name: {this.state.firstName}</div>
         <div className="lastname">Last name: {this.state.lastName}</div>
-        <button
+        <button className="myButton"
           onClick={() => {
             this.setState({ editing: true });
           }}
@@ -34,7 +36,9 @@ export class FormEdit extends Component {
           editing
         </button>
       </form>
+    </div>
     ) : (
+    <div className="container">
       <form>
         <div className="firstname">First name:</div>
         <input
@@ -52,6 +56,7 @@ export class FormEdit extends Component {
           onChange={(event) => this.setState({ lastName: event.target.value })}
           placeholder={this.state.lastName}
         />
+        <br></br>
         <button
           className="save"
           onClick={() => {
@@ -69,6 +74,7 @@ export class FormEdit extends Component {
           Cancel
         </button>
       </form>
+    </div>
     );
   }
 }
